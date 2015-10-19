@@ -27,7 +27,18 @@ public class PhotoCapture {
 
 
     public void start() {
-        //make sure source is one of the Builder's constants
+        //make sure source is one of the Builder's constants, if not, default to PICKER
+        //call one of below methods, use the CROP boolean when the photo is picked, either show a cropper or not
+    }
+
+    private void launchPicker() {
+
+    }
+    private void launchGalleryPicker() {
+
+    }
+    private void launchCamera() {
+
     }
 
 
@@ -39,6 +50,7 @@ public class PhotoCapture {
 
         private Context context;
         private PhotoCapture photoCapture;
+
 
         public PhotoCaptureBuilder( Context context ) {
             this.context = context;
