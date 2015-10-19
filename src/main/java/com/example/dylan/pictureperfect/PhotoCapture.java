@@ -1,6 +1,8 @@
 package com.example.dylan.pictureperfect;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 
 /**
  * Created by dylan on 10/19/15.
@@ -11,68 +13,33 @@ public class PhotoCapture {
         void getPhotoResult( PhotoResult result );
     }
 
+    protected PhotoCaptureCallback callback = null;
+    protected Context context;
+    protected boolean crop = true;
+
     public PhotoCapture( Context context ) {
-        //cast context to Callback
+        this.context = context;
     }
 
-    private String from = PhotoCaptureBuilder.PICKER;
-    private boolean crop = true;
-
-    public void setFrom( String source ) {
-        from = source;
-    }
     public void setCrop( boolean crop ) {
         this.crop = crop;
     }
 
+    public void setCallback( PhotoCaptureCallback callback ) {
+        this.callback = callback;
+    }
+
 
     public void start() {
-        //make sure source is one of the Builder's constants, if not, default to PICKER
-        //call one of below methods, use the CROP boolean when the photo is picked, either show a cropper or not
-    }
-
-    private void launchPicker() {
 
     }
-    private void launchGalleryPicker() {
-
-    }
-    private void launchCamera() {
+    
+    public void getPickerResult( Intent data ) {
 
     }
 
 
-    public class PhotoCaptureBuilder {
-
-        public static final String GALLERY = "GALLERY";
-        public static final String CAMERA = "CAMERA";
-        public static final String PICKER = "PICKER";
-
-        private Context context;
-        private PhotoCapture photoCapture;
 
 
-        public PhotoCaptureBuilder( Context context ) {
-            this.context = context;
-        }
-
-        public PhotoCaptureBuilder from( String photoSource ) {
-            photoCapture = photoCapture == null ? new PhotoCapture( context ) : photoCapture;
-            photoCapture.setFrom( photoSource );
-            return this;
-        }
-
-        public PhotoCaptureBuilder crop( boolean crop ) {
-            photoCapture = photoCapture == null ? new PhotoCapture( context ) : photoCapture;
-            photoCapture.setCrop( crop );
-            return this;
-        }
-
-        public PhotoCapture build() {
-            return photoCapture;
-        }
-
-
-    }
 
 }
