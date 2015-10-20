@@ -11,7 +11,7 @@ public class PhotoResult {
 
     private File image;
 
-    public void setImage( File image ) {
+    public PhotoResult( File image ) {
         this.image = image;
     }
 
