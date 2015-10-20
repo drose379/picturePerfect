@@ -31,26 +31,25 @@ public class GalleryCapture extends PhotoCapture {
         context.startActivity( galleryPick );
     }
 
-    @Override
     public void getPickerResult( Intent photoData ) {
         //TODO:: Get the location of the selected photo, if crop is true, crop it, then parse it into PhotoResult object
         Uri selectedUri = photoData.getData();
         if ( crop ) {
-            //TODO:: Show a cropping actiivty that passes the cropped photo back to here
+
+            Intent crop = new Intent( context, Cropper.class );
+            crop.putExtra( "selectedUri", selectedUri.toString() );
+            context.startActivity( crop );
+
         } else {
-            String[] projection = {MediaStore.Images.Media.DATA};
-            Cursor imageCursor = MediaStore.Images.Media.query( context.getContentResolver(), selectedUri, projection);
-            while ( imageCursor.moveToNext() ) {
-                int pathCol = imageCursor.getColumnIndex( MediaStore.Images.Media.DATA );
-                File selected = new File( imageCursor.getString( pathCol ) );
-                callback.getPhotoResult( new PhotoResult( selected, selectedUri ) );
-            }
+            parseUri( selectedUri );
         }
     }
 
+    public void getCropperResult( File croppedPhoto ) {
+        callback.getPhotoResult( new PhotoResult( croppedPhoto, null ) );
+    }
 
     public static class Builder {
-        //TODO:: If GaleryCapture extends PhotoCapture, does GalleryCapture need its own Builder class? Or can Builder here extend the superclass Builder
 
         protected GalleryCapture galleryCapture;
         private Context context;

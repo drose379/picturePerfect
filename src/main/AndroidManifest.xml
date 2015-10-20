@@ -5,6 +5,8 @@
         android:supportsRtl="true">
 
         <activity android:name=".GalleryPick"/>
+        <activity android:name=".Cropper"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
     </application>
 

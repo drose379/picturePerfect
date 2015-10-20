@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import java.io.File;
@@ -16,7 +17,7 @@ public class PhotoResult {
     private File image;
     private Uri uri;
 
-    public PhotoResult( File image, Uri uri ) {
+    public PhotoResult( File image, @Nullable Uri uri ) {
         this.image = image;
         this.uri = uri;
     }
@@ -30,7 +31,7 @@ public class PhotoResult {
     }
 
     public Uri getUri() {
-        return uri;
+        return uri != null ? uri : Uri.parse("NULL");
     }
 
     public Bitmap getBitmap() {
@@ -43,7 +44,7 @@ public class PhotoResult {
 
 
     public void loadInto( ImageView view ) {
-        view.setImageDrawable( getDrawable() );
+        view.setImageDrawable(getDrawable());
     }
 
 
