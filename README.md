@@ -1,4 +1,4 @@
-  # picturePerfect
+##picturePerfect
 A photo handling library for Android 
 
 Handling images coming from the users Gallery / Camera can get messy and confusing. This library offers simplicity when it comes to photo handline
@@ -19,3 +19,4 @@ public void getPhotoResult( PhotoResult result ) {
   // Also contains convenience method for loading the image into an ImageView
   result.loadInto( ImageView );
 }
+```
