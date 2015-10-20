@@ -1,6 +1,6 @@
 ##picturePerfect
 
-_Handling images coming from the users Gallery / Camera can get messy and confusing. This library offers simplicity when it comes to photo handline_
+_Handling images coming from the users Gallery / Camera can get messy and confusing. This library offers simplicity when it comes to photo handling_
 
 _Selecting Photos From Gallery, with a crop_
 
