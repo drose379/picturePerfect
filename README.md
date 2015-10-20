@@ -1,7 +1,6 @@
 ##picturePerfect
-A photo handling library for Android 
 
-Handling images coming from the users Gallery / Camera can get messy and confusing. This library offers simplicity when it comes to photo handline
+_Handling images coming from the users Gallery / Camera can get messy and confusing. This library offers simplicity when it comes to photo handline_
 
 _Selecting Photos From Gallery, with a crop_
 
