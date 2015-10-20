@@ -8,12 +8,12 @@ _Selecting Photos From Gallery, with a crop_
 ```
 public void getGalleryImage() {
 
-GalleryCapture galleryCapture = new GalleryCapture.Builder( this )
-    .crop( true )
-    .build();
+    GalleryCapture galleryCapture = new GalleryCapture.Builder( this )
+        .crop( true )
+        .build();
     
-galleryCapture.setCallback( this )
-galleryCapture.start();
+    galleryCapture.setCallback( this )
+    galleryCapture.start();
 
 }
 
