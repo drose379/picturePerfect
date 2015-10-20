@@ -43,7 +43,7 @@ public class GalleryCapture extends PhotoCapture {
             while ( imageCursor.moveToNext() ) {
                 int pathCol = imageCursor.getColumnIndex( MediaStore.Images.Media.DATA );
                 File selected = new File( imageCursor.getString( pathCol ) );
-                callback.getPhotoResult( new PhotoResult( selected ) );
+                callback.getPhotoResult( new PhotoResult( selected, selectedUri ) );
             }
         }
     }

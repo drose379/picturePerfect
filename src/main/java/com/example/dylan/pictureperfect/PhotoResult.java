@@ -1,6 +1,10 @@
 package com.example.dylan.pictureperfect;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.widget.ImageView;
 
 import java.io.File;
 
@@ -10,13 +14,36 @@ import java.io.File;
 public class PhotoResult {
 
     private File image;
+    private Uri uri;
 
-    public PhotoResult( File image ) {
+    public PhotoResult( File image, Uri uri ) {
         this.image = image;
+        this.uri = uri;
     }
 
-    public String getLocationPath() {
+    public String getPath() {
         return image.getPath();
+    }
+
+    public File getFile() {
+        return image;
+    }
+
+    public Uri getUri() {
+        return uri;
+    }
+
+    public Bitmap getBitmap() {
+        return BitmapFactory.decodeFile( getPath() );
+    }
+
+    public Drawable getDrawable() {
+        return Drawable.createFromPath( getPath() );
+    }
+
+
+    public void loadInto( ImageView view ) {
+        view.setImageDrawable( getDrawable() );
     }
 
 
