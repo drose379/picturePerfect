@@ -15,8 +15,11 @@ galleryCapture.start();
 
 @Override
 public void getPhotoResult( PhotoResult result ) {
-  // PhotoResult contains Drawable, Bitmap, File 
-  // Also contains convenience method for loading the image into an ImageView
-  result.loadInto( ImageView );
+    Drawable d = result.getDrawable();
+    Bitmap b = result.getBitmap();
+    File f = result.getFile();
+    String path = result.getPath();
+    
+    result.loadInto( imageView );
 }
 ```
