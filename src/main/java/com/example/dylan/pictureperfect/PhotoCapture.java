@@ -7,7 +7,7 @@ import android.content.Intent;
 /**
  * Created by dylan on 10/19/15.
  */
-public class PhotoCapture {
+public abstract class PhotoCapture {
 
     public interface PhotoCaptureCallback {
         void getPhotoResult( PhotoResult result );

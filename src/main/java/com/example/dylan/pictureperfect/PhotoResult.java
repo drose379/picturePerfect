@@ -1,5 +1,7 @@
 package com.example.dylan.pictureperfect;
 
+import android.graphics.Bitmap;
+
 import java.io.File;
 
 /**
@@ -7,7 +9,6 @@ import java.io.File;
  */
 public class PhotoResult {
 
-    private String locationPath;
     private File image;
 
     public void setImage( File image ) {
