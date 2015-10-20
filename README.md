@@ -6,12 +6,16 @@ Handling images coming from the users Gallery / Camera can get messy and confusi
 _Selecting Photos From Gallery, with a crop_
 
 ```
+public void getGalleryImage() {
+
 GalleryCapture galleryCapture = new GalleryCapture.Builder( this )
     .crop( true )
     .build();
     
 galleryCapture.setCallback( this )
 galleryCapture.start();
+
+}
 
 @Override
 public void getPhotoResult( PhotoResult result ) {
