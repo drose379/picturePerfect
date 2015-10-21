@@ -29,6 +29,7 @@ public class PhotoResult {
     public PhotoResult( File image, @Nullable Uri uri, ASPECT aspect ) {
         this.image = image;
         this.uri = uri;
+        this.photoAspect = aspect;
     }
 
     public String getPath() {
@@ -52,24 +53,26 @@ public class PhotoResult {
 
         switch ( photoAspect ) {
             case LANDSCAPE :
-
+                thumbnail = ThumbnailUtils.extractThumbnail( getBitmap(), THUMBNAIL_LANDSCAPE_WIDTH, THUMBNAIL_DEFAULT_HEIGHT );
                 break;
             case PORTRAIT:
-
+                thumbnail = ThumbnailUtils.extractThumbnail( getBitmap(), THUMBNAIL_DEFAULT_WIDTH, THUMBNAIL_PORTRAIT_HEIGHT );
                 break;
             default:
-
+                thumbnail = ThumbnailUtils.extractThumbnail( getBitmap(), THUMBNAIL_DEFAULT_WIDTH, THUMBNAIL_DEFAULT_HEIGHT );
                 break;
 
         }
 
-
         return thumbnail;
-        //return ThumbnailUtils.extractThumbnail( getBitmap(), THUMBNAIL_DEFAULT, THUMBNAIL_DEFAULT );
+    }
+
+    public Bitmap getThumbnail( int x, int y ) {
+        return ThumbnailUtils.extractThumbnail( getBitmap(), x, y );
     }
 
     public Drawable getDrawable() {
-        return Drawable.createFromPath( getPath() );
+        return Drawable.createFromPath(getPath());
     }
 
 
@@ -77,6 +80,10 @@ public class PhotoResult {
         view.setImageDrawable(getDrawable());
     }
     public void loadThumbnailInto( ImageView view ) { view.setImageBitmap( getThumbnail( ) ); }
+
+    public void loadThumbnailInto ( ImageView view, int x, int y ) {
+        view.setImageBitmap( getThumbnail( x, y ) );
+    }
 
 
 

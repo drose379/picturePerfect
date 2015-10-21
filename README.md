@@ -90,10 +90,12 @@ _In order to use the aspect ratio, the crop() option must be set to true_
     Uri getUri();
     Bitmap getBitmap();
     Bitmap getThumbnail();
+    Bitmap getThumbnail( int width, int height );
     Drawable getDrawable();
 
     void loadInto( ImageView );
     void loadThumbnailInto( ImageView );
+    void loadThumbnailInto( ImageView, int width, int height );
 
 ```
 
