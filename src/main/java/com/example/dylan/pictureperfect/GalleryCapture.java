@@ -52,6 +52,10 @@ public class GalleryCapture extends PhotoCapture {
 
     public static class Builder {
 
+        public enum QUALITY {
+            HIGH,MED,LOW
+        }
+
         protected GalleryCapture galleryCapture;
         private Context context;
 
@@ -67,7 +71,25 @@ public class GalleryCapture extends PhotoCapture {
 
         public Builder photoFormat( Bitmap.CompressFormat format ) {
             galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
-            galleryCapture.setPhotoFormat( format );
+            galleryCapture.setPhotoFormat(format);
+            return this;
+        }
+
+        public Builder photoQuality( QUALITY quality ) {
+            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
+            switch ( quality ) {
+
+                case HIGH :
+                    galleryCapture.setPhotoQuality( 100 );
+                    break;
+                case MED :
+                    galleryCapture.setPhotoQuality( 65 );
+                    break;
+                case LOW :
+                    galleryCapture.setPhotoQuality( 25 );
+                    break;
+            }
+
             return this;
         }
 

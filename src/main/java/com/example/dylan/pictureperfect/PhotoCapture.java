@@ -27,6 +27,7 @@ public abstract class PhotoCapture {
     protected Context context;
     protected boolean crop = false;
     protected Bitmap.CompressFormat photoFormat = Bitmap.CompressFormat.JPEG;
+    protected int photoQuality = 100;
 
     public PhotoCapture( Context context ) {
         this.context = context;
@@ -37,6 +38,8 @@ public abstract class PhotoCapture {
     }
 
     public void setPhotoFormat( Bitmap.CompressFormat format ) { this.photoFormat = format; }
+
+    public void setPhotoQuality( int quality ) { this.photoQuality = quality; }
 
     public void setCallback( PhotoCaptureCallback callback ) {
         this.callback = callback;
@@ -61,7 +64,7 @@ public abstract class PhotoCapture {
 
         try {
             FileOutputStream outputStream = new FileOutputStream( photo );
-            temp.compress( format, 100, outputStream );
+            temp.compress( format, photoQuality, outputStream );
         } catch ( FileNotFoundException e ) {
             throw new RuntimeException( e.getMessage() );
         }
