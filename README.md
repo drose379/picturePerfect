@@ -82,6 +82,21 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 .photoAspect( ASPECT [FREE,SQUARE,LANDSCAPE,PORTRAIT] )
 ```
 
+####PhotoResult class
+```java
+
+    String getPath();
+    File getFile();
+    Uri getUri();
+    Bitmap getBitmap();
+    Bitmap getThumbnail();
+    Drawable getDrawable();
+
+    void loadInto( ImageView );
+    void loadThumbnailInto( ImageView );
+
+```
+
 ####Required Permissions
 _android.permission.READ_EXTERNAL_STORAGE_ ,
 _android.permission.WRITE_EXTERNAL_STORAGE_
