@@ -74,12 +74,12 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 
 ```
 
-####All available options in GalleryCapture.Builder:
+####All available options in GalleryCapture.Builder ( So Far ) :
 ```
-_.crop( boolean )_ 
-_.photoFormat( Bitmap.CompressFormat )_ 
-_.photoQuality( QUALITY [HIGH,MED,LOW] )_  
-_.photoAspect( ASPECT [FREE,SQUARE,LANDSCAPE,PORTRAIT] )_
+.crop( boolean )
+.photoFormat( Bitmap.CompressFormat )
+.photoQuality( QUALITY [HIGH,MED,LOW] )  
+.photoAspect( ASPECT [FREE,SQUARE,LANDSCAPE,PORTRAIT] )
 ```
 
 ####Required Permissions
