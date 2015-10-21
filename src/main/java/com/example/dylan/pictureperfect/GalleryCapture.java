@@ -3,6 +3,7 @@ package com.example.dylan.pictureperfect;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -32,7 +33,6 @@ public class GalleryCapture extends PhotoCapture {
     }
 
     public void getPickerResult( Intent photoData ) {
-        //TODO:: Get the location of the selected photo, if crop is true, crop it, then parse it into PhotoResult object
         Uri selectedUri = photoData.getData();
         if ( crop ) {
 
@@ -46,6 +46,8 @@ public class GalleryCapture extends PhotoCapture {
     }
 
     public void getCropperResult( File croppedPhoto ) {
+        //TODO:: Convert filetype into correct type stored in PhotoCapture
+        compressToFormat( croppedPhoto, photoFormat );
         callback.getPhotoResult( new PhotoResult( croppedPhoto, null ) );
     }
 
@@ -61,6 +63,17 @@ public class GalleryCapture extends PhotoCapture {
         public Builder crop( boolean crop ) {
             galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
             galleryCapture.setCrop(crop);
+            return this;
+        }
+
+        public Builder photoFormat( Bitmap.CompressFormat format ) {
+            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
+            galleryCapture.setPhotoFormat( format );
+            return this;
+        }
+
+        public Builder filename ( String fileName ) {
+
             return this;
         }
 
