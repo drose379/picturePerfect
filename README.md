@@ -51,10 +51,10 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     }
 
 
-```java
+```
 #####_Selecting photos from gallery with crop and aspect ratio_
 _In order to use the aspect ratio, the crop() option must be set to true_
-```
+```java
     public void getGalleryImage() {
     
         GalleryCapture galleryCapture = new GalleryCapture.Builder()
