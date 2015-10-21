@@ -6,7 +6,7 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
 
 #####_Selecting Photos From Gallery, with a crop_
 
-```
+```java
     public void getGalleryImage() {
 
         GalleryCapture galleryCapture = new GalleryCapture.Builder( this )
