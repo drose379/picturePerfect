@@ -32,7 +32,7 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
 ```
 
 #####_Selecting photos from gallery with crop and filetype to convert to_
-```
+```java
     public void getGalleryImage() {
     
         GalleryCapture galleryCapture = new GalleryCapture.Builder()
@@ -51,7 +51,7 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     }
 
 
-```
+```java
 #####_Selecting photos from gallery with crop and aspect ratio_
 _In order to use the aspect ratio, the crop() option must be set to true_
 ```
@@ -75,7 +75,7 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 ```
 
 ####All available options in GalleryCapture.Builder ( So Far ) :
-```
+```java
 .crop( boolean )
 .photoFormat( Bitmap.CompressFormat )
 .photoQuality( QUALITY [HIGH,MED,LOW] )  
