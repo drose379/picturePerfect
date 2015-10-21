@@ -11,7 +11,7 @@ import android.util.Log;
 import java.io.File;
 
 /**
- * Created by dylan on 10/19/15.
+ * Created by Dylan Rose on 10/19/15.
  */
 public class GalleryCapture extends PhotoCapture {
 
@@ -46,7 +46,6 @@ public class GalleryCapture extends PhotoCapture {
     }
 
     public void getCropperResult( File croppedPhoto ) {
-        //TODO:: Convert filetype into correct type stored in PhotoCapture
         compressToFormat( croppedPhoto, photoFormat );
         callback.getPhotoResult( new PhotoResult( croppedPhoto, null ) );
     }

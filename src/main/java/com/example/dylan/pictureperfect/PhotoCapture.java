@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 /**
- * Created by dylan on 10/19/15.
+ * Created by Dylan Rose on 10/19/15.
  */
 public abstract class PhotoCapture {
 
@@ -49,7 +49,6 @@ public abstract class PhotoCapture {
         while ( imageCursor.moveToNext() ) {
             int pathCol = imageCursor.getColumnIndex( MediaStore.Images.Media.DATA );
             File selected = new File( imageCursor.getString( pathCol ) );
-            //TODO:: Compress file into the correct fileType
             compressToFormat( selected, photoFormat );
             callback.getPhotoResult( new PhotoResult( selected, photo ) );
         }
