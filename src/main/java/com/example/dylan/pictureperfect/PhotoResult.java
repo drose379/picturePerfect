@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
+import com.example.dylan.pictureperfect.GalleryCapture.Builder.ASPECT;
+
 import java.io.File;
 
 /**
@@ -17,9 +19,14 @@ public class PhotoResult {
 
     private File image;
     private Uri uri;
-    private static int THUMBNAIL_DEFAULT = 70;
+    private ASPECT photoAspect;
 
-    public PhotoResult( File image, @Nullable Uri uri ) {
+    private static int THUMBNAIL_DEFAULT_WIDTH = 70;
+    private static int THUMBNAIL_DEFAULT_HEIGHT = 70;
+    private static int THUMBNAIL_LANDSCAPE_WIDTH = 210;
+    private static int THUMBNAIL_PORTRAIT_HEIGHT = 210;
+
+    public PhotoResult( File image, @Nullable Uri uri, ASPECT aspect ) {
         this.image = image;
         this.uri = uri;
     }
@@ -40,7 +47,26 @@ public class PhotoResult {
         return BitmapFactory.decodeFile( getPath() );
     }
 
-    public Bitmap getThumbnail( ) { return ThumbnailUtils.extractThumbnail( getBitmap(), THUMBNAIL_DEFAULT, THUMBNAIL_DEFAULT ); }
+    public Bitmap getThumbnail( ) {
+        Bitmap thumbnail;
+
+        switch ( photoAspect ) {
+            case LANDSCAPE :
+
+                break;
+            case PORTRAIT:
+
+                break;
+            default:
+
+                break;
+
+        }
+
+
+        return thumbnail;
+        //return ThumbnailUtils.extractThumbnail( getBitmap(), THUMBNAIL_DEFAULT, THUMBNAIL_DEFAULT );
+    }
 
     public Drawable getDrawable() {
         return Drawable.createFromPath( getPath() );

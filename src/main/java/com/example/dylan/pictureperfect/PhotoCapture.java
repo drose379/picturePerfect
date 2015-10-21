@@ -57,7 +57,7 @@ public abstract class PhotoCapture {
             int pathCol = imageCursor.getColumnIndex( MediaStore.Images.Media.DATA );
             File selected = new File( imageCursor.getString( pathCol ) );
             compressToFormat( selected, photoFormat );
-            callback.getPhotoResult( new PhotoResult( selected, photo ) );
+            callback.getPhotoResult( new PhotoResult( selected, photo, photoAspect ) );
         }
 
     }

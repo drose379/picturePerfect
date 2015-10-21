@@ -49,7 +49,7 @@ public class GalleryCapture extends PhotoCapture {
 
     public void getCropperResult( File croppedPhoto ) {
         compressToFormat( croppedPhoto, photoFormat );
-        callback.getPhotoResult( new PhotoResult( croppedPhoto, null ) );
+        callback.getPhotoResult( new PhotoResult( croppedPhoto, null, photoAspect ) );
     }
 
     //TODO:: No need to use setters here, all fields in PhotoCapture are protected, so I have access to them here
