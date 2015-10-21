@@ -72,7 +72,7 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 
     }
 
-
+```
 
 
 ####Required Permissions
