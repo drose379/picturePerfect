@@ -101,7 +101,7 @@ public class GalleryCapture extends PhotoCapture {
         }
 
         //TODO:: Add to docs, if setPhotoAspect is used, the crop option must be set to true
-        public Builder setPhotoAspect( ASPECT aspect ) {
+        public Builder photoAspect( ASPECT aspect ) {
             galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
             galleryCapture.setPhotoAspect( aspect );
 

@@ -74,6 +74,12 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 
 ```
 
+####All available options in GalleryCapture.Builder:
+_.crop( boolean )_ , 
+_.photoFormat( Bitmap.CompressFormat )_ , 
+_.photoQuality( QUALITY [HIGH,MED,LOW] )_ , 
+_.photoAspect( ASPECT [FREE,SQUARE,LANDSCAPE,PORTRAIT] )_
+
 
 ####Required Permissions
 _android.permission.READ_EXTERNAL_STORAGE_ ,
