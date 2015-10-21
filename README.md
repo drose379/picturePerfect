@@ -28,3 +28,10 @@ public void getPhotoResult( PhotoResult result ) {
 
 }
 ```
+
+####Required Permissions
+_android.permission.READ_EXTERNAL_STORAGE_ ,
+_android.permission.WRITE_EXTERNAL_STORAGE_
+
+
+#####_In Progress_
