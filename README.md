@@ -52,6 +52,26 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
 
 
 ```
+#####_Selecting photos from gallery with crop and aspect ratio_
+_In order to use the aspect ratio, the crop() option must be set to true_
+```
+    public void getGalleryImage() {
+    
+        GalleryCapture galleryCapture = new GalleryCapture.Builder()
+            .crop( true )
+            .setPhotoAspect( ASPECT.LANDSCAPE )
+            .build();
+
+        galleryCapture.setCallback( this );
+        galleryCapture.start();
+
+    }   
+
+    @Override
+    public void getPhotoResult( PhotoResult result ) {
+
+    }
+
 
 
 
