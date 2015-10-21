@@ -38,6 +38,8 @@ public class GalleryCapture extends PhotoCapture {
 
             Intent crop = new Intent( context, Cropper.class );
             crop.putExtra( "selectedUri", selectedUri.toString() );
+            crop.putExtra( "aspect", photoAspect );
+
             context.startActivity( crop );
 
         } else {
@@ -50,6 +52,7 @@ public class GalleryCapture extends PhotoCapture {
         callback.getPhotoResult( new PhotoResult( croppedPhoto, null ) );
     }
 
+    //TODO:: No need to use setters here, all fields in PhotoCapture are protected, so I have access to them here
     public static class Builder {
 
         public enum QUALITY {
@@ -57,7 +60,7 @@ public class GalleryCapture extends PhotoCapture {
         }
 
         public enum ASPECT {
-            SQUARE,LANDSCAPE,PORTRAIT
+            SQUARE,LANDSCAPE,PORTRAIT,FREE
         }
 
         protected GalleryCapture galleryCapture;
@@ -93,6 +96,14 @@ public class GalleryCapture extends PhotoCapture {
                     galleryCapture.setPhotoQuality( 25 );
                     break;
             }
+
+            return this;
+        }
+
+        //TODO:: Add to docs, if setPhotoAspect is used, the crop option must be set to true
+        public Builder setPhotoAspect( ASPECT aspect ) {
+            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
+            galleryCapture.setPhotoAspect( aspect );
 
             return this;
         }

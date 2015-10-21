@@ -23,11 +23,13 @@ public abstract class PhotoCapture {
         void getPhotoResult( PhotoResult result );
     }
 
+    //TODO:: Show the default values for each option in the README and in documentation
     protected PhotoCaptureCallback callback = null;
     protected Context context;
     protected boolean crop = false;
     protected Bitmap.CompressFormat photoFormat = Bitmap.CompressFormat.JPEG;
     protected int photoQuality = 100;
+    protected GalleryCapture.Builder.ASPECT photoAspect = GalleryCapture.Builder.ASPECT.FREE;
 
     public PhotoCapture( Context context ) {
         this.context = context;
@@ -40,6 +42,8 @@ public abstract class PhotoCapture {
     public void setPhotoFormat( Bitmap.CompressFormat format ) { this.photoFormat = format; }
 
     public void setPhotoQuality( int quality ) { this.photoQuality = quality; }
+
+    public void setPhotoAspect( GalleryCapture.Builder.ASPECT aspect) { this.photoAspect = aspect; } //TODO:: Implement this functionality
 
     public void setCallback( PhotoCaptureCallback callback ) {
         this.callback = callback;
