@@ -62,7 +62,6 @@ public abstract class PhotoCapture {
 
     }
 
-    //TODO::Allow dev to set quality with GalleryBuilder [0-100], this will set the quality in the compress.
     public void compressToFormat( File photo, Bitmap.CompressFormat format ) {
         Bitmap temp = BitmapFactory.decodeFile(photo.getPath());
 
