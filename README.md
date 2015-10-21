@@ -2,7 +2,9 @@
 
 _Handling images coming from the users Gallery / Camera can get messy and confusing. This library offers simplicity when it comes to photo capture and handling_
 
-####_Selecting Photos From Gallery, with a crop_
+###Usage
+
+#####_Selecting Photos From Gallery, with a crop_
 
 ```
     public void getGalleryImage() {
@@ -29,7 +31,7 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     }
 ```
 
-####_Selecting photos from gallery with crop and filetype to convert to_
+#####_Selecting photos from gallery with crop and filetype to convert to_
 ```
     public void getGalleryImage() {
     

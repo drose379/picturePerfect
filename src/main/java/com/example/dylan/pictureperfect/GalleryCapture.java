@@ -56,6 +56,10 @@ public class GalleryCapture extends PhotoCapture {
             HIGH,MED,LOW
         }
 
+        public enum ASPECT {
+            SQUARE,LANDSCAPE,PORTRAIT
+        }
+
         protected GalleryCapture galleryCapture;
         private Context context;
 
