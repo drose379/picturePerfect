@@ -33,20 +33,10 @@ public class GalleryCapture extends PhotoCapture {
     }
 
     public void getPickerResult( Intent photoData ) {
-        Uri selectedUri = photoData.getData();
-        if ( crop ) {
-
-            Intent crop = new Intent( context, Cropper.class );
-            crop.putExtra( "selectedUri", selectedUri.toString() );
-            crop.putExtra( "aspect", photoAspect );
-
-            context.startActivity( crop );
-
-        } else {
-            parseUri( selectedUri );
-        }
+        super.getPickerResult( photoData );
     }
 
+    @Override
     public void getCropperResult( File croppedPhoto ) {
         compressToFormat( croppedPhoto, photoFormat );
         callback.getPhotoResult( new PhotoResult( croppedPhoto, null, photoAspect ) );
@@ -63,7 +53,7 @@ public class GalleryCapture extends PhotoCapture {
             SQUARE,LANDSCAPE,PORTRAIT,FREE
         }
 
-        protected GalleryCapture galleryCapture;
+        //protected GalleryCapture galleryCapture;
         private Context context;
 
         public Builder( Context context ) {
@@ -71,19 +61,17 @@ public class GalleryCapture extends PhotoCapture {
         }
 
         public Builder crop( boolean crop ) {
-            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
-            galleryCapture.setCrop(crop);
+            GalleryCapture.getInstance( context ).setCrop(crop);
             return this;
         }
 
         public Builder photoFormat( Bitmap.CompressFormat format ) {
-            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
-            galleryCapture.setPhotoFormat(format);
+            GalleryCapture.getInstance( context ).setPhotoFormat(format);
             return this;
         }
 
         public Builder photoQuality( QUALITY quality ) {
-            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
+            GalleryCapture galleryCapture = GalleryCapture.getInstance( context );
             switch ( quality ) {
 
                 case HIGH :
@@ -101,9 +89,7 @@ public class GalleryCapture extends PhotoCapture {
         }
 
         public Builder photoAspect( ASPECT aspect ) {
-            galleryCapture = galleryCapture == null ? GalleryCapture.getInstance( context ) : galleryCapture;
-            galleryCapture.setPhotoAspect( aspect );
-
+            GalleryCapture.getInstance( context ).setPhotoAspect( aspect );
             return this;
         }
 
@@ -113,7 +99,7 @@ public class GalleryCapture extends PhotoCapture {
         }
 
         public GalleryCapture build() {
-            return galleryCapture;
+            return GalleryCapture.getInstance( context );
         }
 
     }

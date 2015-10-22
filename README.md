@@ -100,8 +100,9 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 ```
 
 ####Required Permissions
-_android.permission.READ_EXTERNAL_STORAGE_ ,
+_android.permission.READ_EXTERNAL_STORAGE_ 
 _android.permission.WRITE_EXTERNAL_STORAGE_
+_android.hardware.camera_
 
 
 #####_In Progress_

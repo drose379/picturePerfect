@@ -49,6 +49,29 @@ public abstract class PhotoCapture {
         this.callback = callback;
     }
 
+    public void start() {
+
+    }
+
+    public void getPickerResult( Intent data ) {
+        Uri selectedUri = data.getData();
+        if ( crop ) {
+
+            Intent crop = new Intent( context, Cropper.class );
+            crop.putExtra( "selectedUri", selectedUri.toString() );
+            crop.putExtra( "aspect", photoAspect );
+
+            context.startActivity( crop );
+
+        } else {
+            parseUri( selectedUri );
+        }
+    }
+
+    public void getCropperResult( File croppedPhoto ) {
+
+    }
+
     public void parseUri( Uri photo ) {
 
         String[] projection = {MediaStore.Images.Media.DATA};
@@ -73,18 +96,6 @@ public abstract class PhotoCapture {
         }
 
     }
-
-
-    public void start() {
-
-    }
-    
-    public void getPickerResult( Intent data ) {
-
-    }
-
-
-
 
 
 }
