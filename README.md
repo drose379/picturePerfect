@@ -10,7 +10,7 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     public void getGalleryImage() {
 
         GalleryCapture galleryCapture = new GalleryCapture.Builder( this )
-            .callback( PhotoCaptureCallback ) //required to get the PhotoResult from the GalleryCapture
+            .callback( this ) //required to get the PhotoResult from the GalleryCapture
             .crop( true )
             .build();
     
@@ -36,7 +36,7 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     public void getGalleryImage() {
     
         GalleryCapture galleryCapture = new GalleryCapture.Builder()
-            .callback( PhotoCaptureCallback ) //required to get the PhotoResult from the GalleryCapture
+            .callback( this ) //required to get the PhotoResult from the GalleryCapture
             .crop( true )
             .photoFormat( Bitmap.CompressFormat.JPEG )
             .build();
