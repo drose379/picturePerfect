@@ -10,10 +10,10 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     public void getGalleryImage() {
 
         GalleryCapture galleryCapture = new GalleryCapture.Builder( this )
+            .callback( PhotoCaptureCallback ) //required to get the PhotoResult from the GalleryCapture
             .crop( true )
             .build();
     
-        galleryCapture.setCallback( this )
         galleryCapture.start();
 
     }
@@ -36,11 +36,11 @@ _Handling images coming from the users Gallery / Camera can get messy and confus
     public void getGalleryImage() {
     
         GalleryCapture galleryCapture = new GalleryCapture.Builder()
+            .callback( PhotoCaptureCallback ) //required to get the PhotoResult from the GalleryCapture
             .crop( true )
             .photoFormat( Bitmap.CompressFormat.JPEG )
             .build();
 
-        galleryCapture.setCallback( this );
         galleryCapture.start();
 
     }   
@@ -58,11 +58,11 @@ _In order to use the aspect ratio, the crop() option must be set to true_
     public void getGalleryImage() {
     
         GalleryCapture galleryCapture = new GalleryCapture.Builder()
+            .callback( this ) //required to get the PhotoResult from the GalleryCapture
             .crop( true )
             .setPhotoAspect( ASPECT.LANDSCAPE )
             .build();
 
-        galleryCapture.setCallback( this );
         galleryCapture.start();
 
     }   
@@ -76,6 +76,7 @@ _In order to use the aspect ratio, the crop() option must be set to true_
 
 ####All available options in GalleryCapture.Builder ( So Far ) :
 ```java
+.callback( PhotoCaptureCallback ) //required to get the PhotoResult from the GalleryCapture
 .crop( boolean )
 .photoFormat( Bitmap.CompressFormat )
 .photoQuality( QUALITY [HIGH,MED,LOW] )  

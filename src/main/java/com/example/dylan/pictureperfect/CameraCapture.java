@@ -49,8 +49,13 @@ public class CameraCapture extends PhotoCapture {
             this.context = context;
         }
 
+        public Builder callback( PhotoCaptureCallback callback ) {
+            CameraCapture.getInstance( context ).callback = callback;
+            return this;
+        }
+
         public Builder crop( boolean crop ) {
-            CameraCapture.getInstance( context ).setCrop( crop );
+            CameraCapture.getInstance( context ).crop = crop;
             return this;
         }
 

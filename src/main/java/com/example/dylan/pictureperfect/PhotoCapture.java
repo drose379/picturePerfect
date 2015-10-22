@@ -35,19 +35,6 @@ public abstract class PhotoCapture {
         this.context = context;
     }
 
-    public void setCrop( boolean crop ) {
-        this.crop = crop;
-    }
-
-    public void setPhotoFormat( Bitmap.CompressFormat format ) { this.photoFormat = format; }
-
-    public void setPhotoQuality( int quality ) { this.photoQuality = quality; }
-
-    public void setPhotoAspect( GalleryCapture.Builder.ASPECT aspect) { this.photoAspect = aspect; } //TODO:: Implement this functionality
-
-    public void setCallback( PhotoCaptureCallback callback ) {
-        this.callback = callback;
-    }
 
     public void start() {
 

@@ -53,20 +53,24 @@ public class GalleryCapture extends PhotoCapture {
             SQUARE,LANDSCAPE,PORTRAIT,FREE
         }
 
-        //protected GalleryCapture galleryCapture;
         private Context context;
 
         public Builder( Context context ) {
             this.context = context;
         }
 
+        public Builder callback( PhotoCaptureCallback callback ) {
+            GalleryCapture.getInstance( context ).callback = callback;
+            return this;
+        }
+
         public Builder crop( boolean crop ) {
-            GalleryCapture.getInstance( context ).setCrop(crop);
+            GalleryCapture.getInstance( context ).crop = crop;
             return this;
         }
 
         public Builder photoFormat( Bitmap.CompressFormat format ) {
-            GalleryCapture.getInstance( context ).setPhotoFormat(format);
+            GalleryCapture.getInstance( context ).photoFormat = format;
             return this;
         }
 
@@ -75,13 +79,13 @@ public class GalleryCapture extends PhotoCapture {
             switch ( quality ) {
 
                 case HIGH :
-                    galleryCapture.setPhotoQuality( 100 );
+                    galleryCapture.photoQuality =  100;
                     break;
                 case MED :
-                    galleryCapture.setPhotoQuality( 65 );
+                    galleryCapture.photoQuality = 65;
                     break;
                 case LOW :
-                    galleryCapture.setPhotoQuality( 25 );
+                    galleryCapture.photoQuality = 25;
                     break;
             }
 
@@ -89,7 +93,7 @@ public class GalleryCapture extends PhotoCapture {
         }
 
         public Builder photoAspect( ASPECT aspect ) {
-            GalleryCapture.getInstance( context ).setPhotoAspect( aspect );
+            GalleryCapture.getInstance( context ).photoAspect =  aspect;
             return this;
         }
 
