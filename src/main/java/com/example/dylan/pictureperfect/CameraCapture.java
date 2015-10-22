@@ -28,12 +28,12 @@ public class CameraCapture extends PhotoCapture {
         context.startActivity( cameraCapture );
     }
 
-    @Override
-    public void getPickerResult( Intent data ) {
-        //TODO:: The handling of the photo from the camera will be different from handling of Gallery photo, may not be calling super method here
-        //TODO:: Must save the new photo to a file first, may need seperate methods for getting Camera result from other Gallery result handling
-        Log.i("CAMERA_RESULT",data.getData().toString());
-        //super.getPickerResult( data );
+    public void getPickerResult( File data ) {
+        if ( crop ) {
+
+        } else {
+            callback.getPhotoResult( new PhotoResult( data, null, photoAspect ) ); // workin
+        }
     }
 
     @Override

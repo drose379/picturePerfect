@@ -33,7 +33,18 @@ public class GalleryCapture extends PhotoCapture {
     }
 
     public void getPickerResult( Intent photoData ) {
-        super.getPickerResult( photoData );
+        Uri selectedUri = photoData.getData();
+        if ( crop ) {
+
+            Intent crop = new Intent( context, Cropper.class );
+            crop.putExtra( "selectedUri", selectedUri.toString() );
+            crop.putExtra( "aspect", photoAspect );
+
+            context.startActivity( crop );
+
+        } else {
+            parseUri( selectedUri );
+        }
     }
 
     @Override
