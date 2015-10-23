@@ -31,6 +31,11 @@ public class CameraCapture extends PhotoCapture {
     public void getPickerResult( File data ) {
         if ( crop ) {
 
+            Intent crop = new Intent( context, Cropper.class );
+            crop.putExtra("selectedUri", "file://" + data.toString()  );
+            crop.putExtra( "aspect",photoAspect );
+            context.startActivity( crop );
+
         } else {
             callback.getPhotoResult( new PhotoResult( data, null, photoAspect ) ); // workin
         }

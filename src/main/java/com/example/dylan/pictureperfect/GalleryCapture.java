@@ -40,6 +40,8 @@ public class GalleryCapture extends PhotoCapture {
             crop.putExtra( "selectedUri", selectedUri.toString() );
             crop.putExtra( "aspect", photoAspect );
 
+            Log.i("URI",selectedUri.toString());
+
             context.startActivity( crop );
 
         } else {
